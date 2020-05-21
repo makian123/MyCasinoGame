@@ -9,4 +9,5 @@ def GenRandomColor():
 		color = 'b'
 	else:
 		color = 'g'
+	print('You rolled', number, '(', color, ')')
 	return color

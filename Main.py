@@ -1,12 +1,13 @@
-from Randomizer import GenRandomColor
+from Bet import MakeBet
 
 def main():
+	print('Here are the rules:\nEvery number divisible by 2 is red\nEvery number not divisible by 2 is black, \nNumber 0 is green\n')
 	balance = 100
 	bet = 0
 	while True:
 		if balance == 0:
 			break
-		print("Your balance is: ",balance,"$")
+		print("Your balance is:",balance,"$")
 
 		pick = input("Type r for red, g for green or b for black: ")
 		bet = int(input("Type your bet: "))
@@ -14,12 +15,7 @@ def main():
 		if bet > balance:
 			continue
 
-		balance -= bet
-		if pick == GenRandomColor():
-			if pick == 'g':
-				balance += 3 * bet
-			else:
-				balance += 2 * bet
+		balance = MakeBet(balance, bet, pick)
 
 if __name__ == "__main__":
 	main()
